@@ -1,0 +1,13 @@
+data1:
+  q: "ji"
+  variants:
+    - 1
+    - 2
+  ans: 1
+
+data2:
+  q: "ji"
+  variants:
+    - 1
+    - 2
+  ans: 1
