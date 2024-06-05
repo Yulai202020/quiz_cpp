@@ -3,7 +3,7 @@
 #include <yaml-cpp/yaml.h>
 #include <map>
 
-class idk{
+class quiz {
 private:
     std::string question_;
     std::string answer_;
@@ -18,7 +18,7 @@ public:
     std::vector<std::string> get_variants() {
         return variants_;
     }
-    idk(std::string question, std::string answer, std::vector<std::string> variants) {
+    quiz(std::string question, std::string answer, std::vector<std::string> variants) {
         question_ = question;
         variants_ = variants;
         answer_ = answer;
@@ -69,4 +69,6 @@ int main(int argc, char* argv[]) {
 
         std::cout << std::endl;
     }
+
+    return 0;
 }
