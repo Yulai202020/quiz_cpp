@@ -42,9 +42,9 @@ int main(int argc, char* argv[]) {
     }
 
     int questions_count = config.size();
-    std::vector<idk> questions = config["questions"].as<std::vector<idk>>();
+    std::vector<quiz> questions = config["questions"].as<std::vector<quiz>>();
 
-    for (idk i : questions) {
+    for (quiz i : questions) {
         std::string question = i.get_question();
         std::string ans = i.get_answer();
         std::vector<std::string> variants = i.get_variants();
