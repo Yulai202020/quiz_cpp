@@ -8,16 +8,20 @@ private:
     std::string question_;
     std::string answer_;
     std::vector<std::string> variants_;
+
 public:
     std::string get_question() {
         return question_;
     }
+
     std::string get_answer() {
         return answer_;
     }
+
     std::vector<std::string> get_variants() {
         return variants_;
     }
+
     quiz(std::string question, std::string answer, std::vector<std::string> variants) {
         question_ = question;
         variants_ = variants;
