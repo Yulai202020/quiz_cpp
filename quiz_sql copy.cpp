@@ -9,7 +9,6 @@
 class quiz {
 public:
     std::string question;
-    std::string answer;
 };
 
 std::vector<quiz> questions;
@@ -20,8 +19,6 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
     for (int i = 0; i < argc; i++) {
         if (azColName[i] == "question") {
             q.question = argv[i] ? argv[i] : "NULL";
-        } else if (azColName[i] == "answer") {
-            q.answer = argv[i] ? argv[i] : "NULL";
         }
     }
 
@@ -64,20 +61,9 @@ int main(int argc, char* argv[]) {
 
     for (quiz item : questions) {
         std::string question = item.question;
-        std::string true_answer = item.answer;
 
         std::cout << "Question:" << std::endl;
         std::cout << question << std::endl;
-        std::cout << std::endl;
-
-        std::string answer;
-        std::cout << "Enter your answer: ";
-        std::cin >> answer;
-
-        if (answer == true_answer){
-            std::cout << "You are right." << std::endl;
-        }
-
         std::cout << std::endl;
     }
 
