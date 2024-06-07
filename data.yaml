@@ -1,13 +1,6 @@
-data1:
-  q: "ji"
-  variants:
-    - 1
-    - 2
-  ans: 1
-
-data2:
-  q: "ji"
-  variants:
-    - 1
-    - 2
-  ans: 1
+questions:
+  - question: "2+2=?"
+    answer: "4"
+    variants:
+      - "1"
+      - "4"

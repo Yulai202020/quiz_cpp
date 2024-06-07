@@ -3,28 +3,15 @@
 #include <yaml-cpp/yaml.h>
 
 class quiz {
-private:
-    std::string question_;
-    std::string answer_;
-    std::vector<std::string> variants_;
-
 public:
-    std::string get_question() {
-        return question_;
-    }
+    std::string question;
+    std::string answer;
+    std::vector<std::string> variants;
 
-    std::string get_answer() {
-        return answer_;
-    }
-
-    std::vector<std::string> get_variants() {
-        return variants_;
-    }
-
-    quiz(std::string question, std::string answer, std::vector<std::string> variants) {
-        question_ = question;
-        variants_ = variants;
-        answer_ = answer;
+    friend void operator>>(const YAML::Node& node, quiz& address) {
+        address.question = node["question"].as<std::string>();
+        address.answer = node["answer"].as<std::string>();
+        address.variants = node["variants"].as<std::vector<std::string>>();
     }
 };
 
@@ -45,12 +32,20 @@ int main(int argc, char* argv[]) {
     }
 
     int questions_count = config.size();
-    std::vector<quiz> questions = config["questions"].as<std::vector<quiz>>();
+
+    const YAML::Node& alldata = config["questions"];
+    std::vector<quiz> questions;
+
+    for (std::size_t i = 0; i < alldata.size(); ++i) {
+        quiz tmp;
+        alldata[i] >> tmp;
+        questions.push_back(tmp);
+    }
 
     for (quiz i : questions) {
-        std::string question = i.get_question();
-        std::string ans = i.get_answer();
-        std::vector<std::string> variants = i.get_variants();
+        std::string question = i.question;
+        std::string ans = i.answer;
+        std::vector<std::string> variants = i.variants;
 
         std::cout << "Question:" << std::endl;
         std::cout << question << std::endl;
