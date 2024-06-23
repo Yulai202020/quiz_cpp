@@ -7,7 +7,7 @@ Second one quiz_yaml.cpp uses yaml file for quiz
 
 Third one uses sqlite for print quiz
 
-Last one just print question from sqlite
+Last one just print question from sqlitea
 
 # Run json quiz
 ```bash
