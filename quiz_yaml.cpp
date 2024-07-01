@@ -18,8 +18,8 @@ public:
 int main(int argc, char* argv[]) {
     YAML::Node config;
 
-    if (argc < 2) {
-        std::cout << "Not many params." << std::endl;
+    if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <yaml_file>" << std::endl;
         return 0;
     }
 
